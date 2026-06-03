@@ -53,7 +53,9 @@
   }
 
   .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-  .nav-brand-logo { height: 32px; width: auto; flex-shrink: 0; }
+  .nav-brand-logo { height: 43px; width: auto; flex-shrink: 0; transition: opacity 0.2s; }
+  .nav-brand:hover .nav-brand-logo path { fill: var(--steel); }
+  .nav-brand:hover .nav-brand-wordmark path { fill: var(--steel); }
   .nav-brand-wordmark { height: 18px; width: auto; }
 
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -111,7 +113,7 @@
 
   .hero-headline {
     font-family: var(--serif);
-    font-size: clamp(4.2rem, 6.75vw, 6.3rem);
+    font-size: clamp(3.35rem, 5.4vw, 5rem);
     font-weight: 300;
     line-height: 1.1;
     color: var(--ivory);
@@ -328,7 +330,7 @@
   .contact-right { padding-top: 2rem; }
   .contact-detail { display: grid; grid-template-columns: 5rem 1fr; align-items: start; padding: 1.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .contact-detail-label { font-family: var(--mono); font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); padding-top: 0.1rem; }
-  .contact-detail-value { font-size: 0.97rem; font-weight: 300; color: rgba(245,242,236,0.55); line-height: 1.6; }
+  .contact-detail-value { font-size: 1rem; font-weight: 300; color: rgba(245,242,236,0.55); line-height: 1.6; }
 
   /* ── FOOTER ── */
   footer {
@@ -362,6 +364,8 @@
     padding-top: 2rem;
   }
   .footer-copy { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; color: rgba(245,242,236,0.2); text-transform: uppercase; }
+  .footer-email { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; color: rgba(245,242,236,0.2); text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+  .footer-email:hover { color: var(--gold-light); }
 
   /* ── REVEAL ── */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -773,7 +777,7 @@
   </div>
   <div class="footer-meta">
     <span class="footer-copy">© 2026 Millstone Holdings LLC — Connecticut</span>
-    <span class="footer-copy">michael@millstoneholdings.co</span>
+    <a href="mailto:michael@millstoneholdings.co" class="footer-email">michael@millstoneholdings.co</a>
   </div>
 </footer>
 
