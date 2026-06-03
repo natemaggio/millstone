@@ -195,27 +195,7 @@
   }
   .hero-cta:hover { color: var(--gold-light); border-color: var(--gold-light); }
 
-  .hero-scroll {
-    position: absolute;
-    bottom: 2rem;
-    left: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--mono);
-    font-size: 0.87rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(245,242,236,0.35);
-    animation: nudge 2.8s ease-in-out infinite;
-    z-index: 2;
-  }
-  .scroll-bar { width: 1px; height: 2rem; background: linear-gradient(to bottom, rgba(245,242,236,0.3), transparent); }
-  @keyframes nudge {
-    0%,100% { transform: translateY(0); opacity:.5; }
-    50% { transform: translateY(5px); opacity:1; }
-  }
+
 
   /* ── SHARED ── */
   .section-label {
@@ -275,12 +255,7 @@
 
   /* ── CRITERIA ── */
   #criteria { background: var(--navy); padding: 8rem 0; overflow: hidden; position: relative; }
-  .criteria-bg-text {
-    position: absolute; top: 50%; left: -2rem; transform: translateY(-50%);
-    font-family: var(--serif); font-size: 22vw; font-weight: 300;
-    color: rgba(255,255,255,0.025); white-space: nowrap;
-    pointer-events: none; user-select: none; letter-spacing: -0.03em;
-  }
+
   .criteria-inner { max-width: 1200px; margin: 0 auto; padding: 0 5rem; position: relative; z-index: 1; }
   .criteria-inner .section-label { color: var(--gold); }
   .criteria-inner .section-title { color: var(--ivory); }
@@ -292,7 +267,7 @@
   }
   .criteria-item { background: var(--navy); padding: 3rem; transition: background 0.3s; }
   .criteria-item:hover { background: var(--navy-deep); }
-  .criteria-num { font-family: var(--serif); font-size: 4.5rem; font-weight: 300; color: rgba(184,145,69,0.18); line-height: 1; margin-bottom: 1rem; }
+  .criteria-num { font-family: var(--serif); font-size: 4.5rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 1rem; }
   .criteria-title { font-family: var(--serif); font-size: 1.95rem; font-weight: 500; color: var(--ivory); margin-bottom: 0.6rem; }
   .criteria-desc { font-size: 1.38rem; font-weight: 300; color: rgba(245,242,236,0.45); line-height: 1.75; }
 
@@ -352,7 +327,7 @@
 
   .contact-right { padding-top: 2rem; }
   .contact-detail { display: grid; grid-template-columns: 5rem 1fr; align-items: start; padding: 1.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .contact-detail-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); padding-top: 0.1rem; }
+  .contact-detail-label { font-family: var(--mono); font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); padding-top: 0.1rem; }
   .contact-detail-value { font-size: 0.97rem; font-weight: 300; color: rgba(245,242,236,0.55); line-height: 1.6; }
 
   /* ── FOOTER ── */
@@ -368,9 +343,9 @@
     overflow: hidden;
   }
   .footer-logo {
-    width: 72vw;
-    max-width: 900px;
-    min-width: 280px;
+    width: 36vw;
+    max-width: 450px;
+    min-width: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -404,14 +379,13 @@
     .hero-left { padding: 7rem 2rem 3.5rem; min-height: 55vh; }
     .hero-right { min-height: 50vh; }
     .hero-caption { padding: 2rem; }
-    .hero-scroll { left: 2rem; }
     .about-inner, .approach-header, .contact-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 1.75rem; }
     .about-left { position: static; }
     .values-row { grid-template-columns: repeat(2,1fr); }
     .criteria-inner, .approach-inner, .difference-inner { padding: 0 1.75rem; }
     .criteria-grid { grid-template-columns: 1fr; }
     footer { padding: 4rem 1.75rem 2.5rem; }
-    .footer-logo { width: 85vw; }
+    .footer-logo { width: 55vw; }
     .footer-meta { flex-direction: column; gap: 0.75rem; text-align: center; }
   }
 </style>
@@ -560,10 +534,6 @@
     </div>
   </div>
 
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-bar"></div>
-  </div>
 </section>
 
 <!-- WHO WE ARE -->
@@ -594,7 +564,6 @@
 
 <!-- WHAT WE LOOK FOR -->
 <section id="criteria">
-  <div class="criteria-bg-text">Ownership</div>
   <div class="criteria-inner">
     <p class="section-label">What We Look For</p>
     <h2 class="section-title reveal">The right business<br><em>for the right reason.</em></h2>
@@ -803,7 +772,7 @@
     </svg>
   </div>
   <div class="footer-meta">
-    <span class="footer-copy">© 2025 Millstone Holdings LLC — Connecticut</span>
+    <span class="footer-copy">© 2026 Millstone Holdings LLC — Connecticut</span>
     <span class="footer-copy">michael@millstoneholdings.co</span>
   </div>
 </footer>
