@@ -387,19 +387,77 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
+  /* ── HAMBURGER MENU ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 1001;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--ivory);
+    z-index: 999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 6rem 2.5rem 3rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-menu.open { opacity: 1; }
+  .mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+  .mobile-menu ul a {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    font-weight: 300;
+    color: var(--navy);
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+  }
+  .mobile-menu ul a:hover { color: var(--gold); }
+
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     /* Nav */
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
 
     /* Hero */
     #hero { min-height: 0; padding: 5.5rem 1.5rem 3rem; justify-content: flex-start; }
-    .hero-content { padding-top: 2.5rem; margin-bottom: 2.25rem; }
+    .hero-content { padding-top: 2.5rem; margin-bottom: 0.5rem; }
     .hero-eyebrow { display: none; }
     .hero-bg-logo { display: none; }
     .hero-headline { font-size: clamp(2.4rem, 9.5vw, 3.5rem); margin-bottom: 0; }
-    .hero-lower { grid-template-columns: 1fr; gap: 1.25rem; padding-top: 1.75rem; border-top: none; }
+    .hero-lower { grid-template-columns: 1fr; gap: 1.25rem; padding-top: 0.75rem; border-top: none; }
     .hero-statement { font-size: 1.1rem; line-height: 1.7; }
 
     /* Visual strip */
@@ -542,7 +600,50 @@
     <li><a href="#team">Deal Team</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <ul>
+    <li><a href="#about">Who I Am</a></li>
+    <li><a href="#criteria">What We Look For</a></li>
+    <li><a href="#approach">Our Approach</a></li>
+    <li><a href="#difference">Why Millstone</a></li>
+    <li><a href="#team">Deal Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<script>
+  (function() {
+    var btn = document.querySelector('.nav-hamburger');
+    var menu = document.getElementById('mobileMenu');
+    function openMenu() {
+      menu.style.display = 'flex';
+      requestAnimationFrame(function() { menu.classList.add('open'); });
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(function() { menu.style.display = 'none'; }, 300);
+    }
+    btn.addEventListener('click', function() {
+      btn.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    menu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
 
 <!-- HERO -->
 <section id="hero">
@@ -592,7 +693,6 @@
     </svg>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">Millstone Holdings</p>
     <h1 class="hero-headline">A long-term home<br>for a business<br>you <em>built.</em></h1>
   </div>
   <div class="hero-lower">
