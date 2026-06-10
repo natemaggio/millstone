@@ -74,29 +74,30 @@
   /* ── HERO ── */
   #hero {
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left {
     background: var(--navy);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 5rem 4rem 5rem 5rem;
     position: relative;
     overflow: hidden;
+    padding: 0 5rem 5rem;
   }
 
   .hero-bg-logo {
     position: absolute;
-    bottom: -4rem;
-    right: -4rem;
-    width: 28rem;
+    bottom: -6rem;
+    right: -6rem;
+    width: 38rem;
     opacity: 0.04;
     pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin-bottom: 3.5rem;
+    padding-top: 10rem;
   }
 
   .hero-eyebrow {
@@ -107,79 +108,48 @@
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
   }
 
   .hero-headline {
     font-family: var(--serif);
-    font-size: clamp(3.35rem, 5.4vw, 5rem);
+    font-size: clamp(3.5rem, 6.5vw, 6rem);
     font-weight: 300;
-    line-height: 1.1;
+    line-height: 1.07;
     color: var(--ivory);
-    position: relative;
-    z-index: 1;
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
     letter-spacing: -0.01em;
   }
 
   .hero-headline em { font-style: italic; color: var(--gold-light); }
 
   .hero-sub {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     font-weight: 300;
     color: rgba(245,242,236,0.5);
     line-height: 1.75;
-    max-width: 36ch;
+    max-width: 52ch;
+  }
+
+  .hero-lower {
     position: relative;
     z-index: 1;
-  }
-
-  .hero-right {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
-  }
-
-  .hero-photo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-  }
-
-  .hero-photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(245,242,236,0.05) 0%,
-      rgba(28,43,58,0.55) 70%,
-      rgba(28,43,58,0.88) 100%
-    );
-  }
-
-  .hero-caption {
-    position: relative;
-    z-index: 1;
-    padding: 3rem 4rem 3.5rem 4rem;
+    border-top: 1px solid rgba(245,242,236,0.1);
+    padding-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 4rem;
+    max-width: 860px;
   }
 
   .hero-statement {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--ivory);
-    line-height: 1.6;
-    max-width: 38ch;
-    margin-bottom: 1.75rem;
+    font-size: 1.65rem;
+    font-weight: 300;
+    color: rgba(245,242,236,0.65);
+    line-height: 1.65;
+    max-width: 58ch;
   }
-  .hero-statement strong { font-weight: 600; }
-
-  .hero-divider { width: 2rem; height: 1px; background: var(--gold); margin-bottom: 1.5rem; }
+  .hero-statement strong { font-weight: 600; color: var(--ivory); }
 
   .hero-cta {
     display: inline-flex;
@@ -193,9 +163,35 @@
     text-decoration: none;
     border-bottom: 1px solid rgba(245,242,236,0.35);
     padding-bottom: 0.15rem;
+    white-space: nowrap;
     transition: color 0.2s, border-color 0.2s;
   }
   .hero-cta:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
+  /* ── VISUAL ── */
+  #visual {
+    height: 65vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+  }
+  .visual-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+  .visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(255,253,249,0.18) 0%,
+      transparent 20%,
+      transparent 80%,
+      rgba(255,253,249,0.18) 100%
+    );
+  }
 
 
 
@@ -367,6 +363,21 @@
   .footer-email { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; color: rgba(245,242,236,0.2); text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
   .footer-email:hover { color: var(--gold-light); }
 
+  /* ── DEAL TEAM ── */
+  #team { background: var(--white); padding: 8rem 0; }
+  .team-inner { max-width: 1200px; margin: 0 auto; padding: 0 5rem; }
+  .team-intro { font-size: 1.575rem; font-weight: 300; color: var(--steel); line-height: 1.85; max-width: 68ch; margin-bottom: 4rem; }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--ivory-mid);
+    margin-bottom: 3.5rem;
+  }
+  .team-member { background: var(--white); padding: 2.5rem 2rem; }
+  .team-role { font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; line-height: 1.6; }
+  .team-name { font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.2; }
+  .team-firm { font-size: 1.3rem; font-weight: 300; font-style: italic; color: var(--steel); }
+  .team-body { font-size: 1.455rem; font-weight: 300; color: var(--steel); line-height: 1.85; max-width: 80ch; border-top: 1px solid var(--ivory-mid); padding-top: 2.5rem; }
+
   /* ── REVEAL ── */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -377,18 +388,77 @@
 
   /* ── MOBILE ── */
   @media (max-width: 900px) {
+    /* Nav */
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    #hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 7rem 2rem 3.5rem; min-height: 55vh; }
-    .hero-right { min-height: 50vh; }
-    .hero-caption { padding: 2rem; }
-    .about-inner, .approach-header, .contact-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 1.75rem; }
+
+    /* Hero */
+    #hero { min-height: 0; padding: 5.5rem 1.5rem 3rem; justify-content: flex-start; }
+    .hero-content { padding-top: 2.5rem; margin-bottom: 2.25rem; }
+    .hero-eyebrow { display: none; }
+    .hero-bg-logo { display: none; }
+    .hero-headline { font-size: clamp(2.4rem, 9.5vw, 3.5rem); margin-bottom: 0; }
+    .hero-lower { grid-template-columns: 1fr; gap: 1.25rem; padding-top: 1.75rem; border-top: none; }
+    .hero-statement { font-size: 1.1rem; line-height: 1.7; }
+
+    /* Visual strip */
+    #visual { height: 52vw; min-height: 240px; }
+
+    /* Shared section spacing */
+    #about, #criteria, #approach, #difference, #team, #contact { padding: 5rem 0; }
+    .section-label { font-size: 0.78rem; }
+    .section-title { font-size: clamp(2rem, 7.5vw, 2.75rem); }
+
+    /* About */
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.5rem; }
+    .about-right { min-width: 0; }
     .about-left { position: static; }
-    .values-row { grid-template-columns: repeat(2,1fr); }
-    .criteria-inner, .approach-inner, .difference-inner { padding: 0 1.75rem; }
+    .about-pullquote { font-size: 1.5rem; }
+    .about-right { min-width: 0; }
+    .about-right p { font-size: 1.05rem; line-height: 1.8; }
+    .values-row { grid-template-columns: repeat(2,1fr); width: 100%; }
+    .value-cell { min-width: 0; overflow: hidden; }
+    .value-name { font-size: 0.75rem; }
+    .value-desc { font-size: 1rem; }
+
+    /* Criteria */
+    .criteria-inner { padding: 0 1.5rem; }
     .criteria-grid { grid-template-columns: 1fr; }
-    footer { padding: 4rem 1.75rem 2.5rem; }
+    .criteria-num { font-size: 3.25rem; }
+    .criteria-title { font-size: 1.5rem; }
+    .criteria-desc { font-size: 1.05rem; }
+
+    /* Approach */
+    .approach-inner { padding: 0 1.5rem; }
+    .approach-header { grid-template-columns: 1fr; gap: 2rem; padding: 0 1.5rem; }
+    .approach-intro { font-size: 1.05rem; }
+    .step { gap: 1.25rem; padding: 2rem 0; }
+    .step-title { font-size: 1.4rem; }
+    .step-desc { font-size: 1.05rem; }
+
+    /* Why Millstone */
+    .difference-inner { padding: 0 1.5rem; }
+    .compare-table th { font-size: 0.78rem; padding: 0.75rem 0.75rem; }
+    .compare-table td { font-size: 1rem; padding: 1rem 0.75rem; }
+    .compare-table tr td:first-child { font-size: 0.78rem; width: 28%; }
+
+    /* Deal team */
+    .team-inner { padding: 0 1.5rem; }
+    .team-grid { grid-template-columns: 1fr; }
+    .team-intro { font-size: 1.05rem; }
+    .team-name { font-size: 1.5rem; }
+    .team-firm { font-size: 1.05rem; }
+    .team-body { font-size: 1.05rem; }
+
+    /* Contact */
+    .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 0 1.5rem; }
+    .contact-headline { font-size: clamp(2rem, 7.5vw, 2.75rem); }
+    .contact-body { font-size: 1.05rem; }
+    .contact-email { font-size: 1rem; }
+    .contact-detail-value { font-size: 0.95rem; }
+
+    /* Footer */
+    footer { padding: 4rem 1.5rem 2.5rem; }
     .footer-logo { width: 55vw; }
     .footer-meta { flex-direction: column; gap: 0.75rem; text-align: center; }
   }
@@ -464,7 +534,7 @@
     </svg>
   </a>
   <ul class="nav-links">
-    <li><a href="#about">Who We Are</a></li>
+    <li><a href="#about">Who I Am</a></li>
     <li><a href="#criteria">What We Look For</a></li>
     <li><a href="#approach">Our Approach</a></li>
     <li><a href="#difference">Why Millstone</a></li>
@@ -474,9 +544,7 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-left">
-    <!-- Large logo watermark behind text -->
-    <svg class="hero-bg-logo" viewBox="0 0 469 469" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <svg class="hero-bg-logo" viewBox="0 0 469 469" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M168.75 464.75C168.75 466.959 166.959 468.75 164.75 468.75H154C151.791 468.75 150 466.959 150 464.75V344.439C150 342.23 151.791 340.439 154 340.439H164.75C166.959 340.439 168.75 342.23 168.75 344.439V464.75Z" fill="white"/>
       <path d="M205.078 355.078C205.829 355.829 206.25 356.846 206.25 357.907V464.75C206.25 466.959 204.459 468.75 202.25 468.75H191.5C189.291 468.75 187.5 466.959 187.5 464.75V342.518C187.5 341.37 188.431 340.439 189.579 340.439C190.13 340.439 190.658 340.658 191.048 341.048L205.078 355.078Z" fill="white"/>
       <path d="M242.578 392.578C243.329 393.329 243.75 394.346 243.75 395.407V464.75C243.75 466.959 241.959 468.75 239.75 468.75H229C226.791 468.75 225 466.959 225 464.75V384.657C225 381.093 229.309 379.309 231.828 381.828L242.578 392.578Z" fill="white"/>
@@ -521,43 +589,40 @@
       <path d="M318.75 318.75H278.316C278.148 318.17 278.062 317.506 278.062 316.757V190.688C278.062 188.191 276.814 186.943 274.318 186.942H273.569C273.403 186.942 273.153 187.026 272.82 187.192C272.654 187.192 272.487 187.276 272.32 187.442C272.154 187.443 271.988 187.525 271.821 187.691C271.655 187.691 271.489 187.775 271.322 187.941C271.322 188.108 271.239 188.274 271.072 188.44C271.069 188.444 270.986 188.528 270.823 188.69C270.657 188.857 270.573 189.107 270.573 189.439C270.573 189.606 270.49 189.856 270.323 190.188V190.688L258.591 317.256C258.531 317.797 258.426 318.295 258.278 318.75H210.477C210.327 318.302 210.221 317.804 210.16 317.256L198.427 190.688C198.26 188.191 196.929 186.943 194.433 186.942C191.936 186.942 190.688 188.191 190.688 190.688V316.757C190.688 317.506 190.602 318.17 190.434 318.75H150V150H220.538C220.709 150.503 220.829 151.084 220.895 151.743L230.381 278.062V278.812C230.547 278.978 230.631 279.228 230.631 279.561C230.631 279.685 230.677 279.81 230.771 279.935L230.989 280.185C231.083 280.309 231.13 280.434 231.13 280.559C231.296 280.559 231.379 280.642 231.379 280.809C231.545 280.975 231.712 281.141 231.879 281.308C232.045 281.308 232.212 281.391 232.378 281.558C232.544 281.558 232.711 281.64 232.877 281.807H234.375C236.871 281.807 238.203 280.559 238.369 278.062L247.855 151.743C247.921 151.084 248.028 150.503 248.172 150H318.75V318.75Z" fill="white"/>
     </svg>
 
-    <p class="hero-eyebrow">Millstone Holdings — Connecticut</p>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Millstone Holdings</p>
     <h1 class="hero-headline">A long-term home<br>for a business<br>you <em>built.</em></h1>
-    <p class="hero-sub">We acquire one exceptional small business and operate it with the same care and commitment you brought to building it.</p>
   </div>
-
-  <div class="hero-right">
-    <img class="hero-photo" src="millstone_1.jpg" alt="A millstone resting in a green field, surrounded by wildflowers">
-    <div class="hero-photo-overlay"></div>
-    <div class="hero-caption">
-      <p class="hero-statement">
-        You spent decades building something real. Your employees know their jobs. Your customers trust your name. <strong>That doesn't have to end when you're ready to step back.</strong>
-      </p>
-      <div class="hero-divider"></div>
-      <a href="#about" class="hero-cta">Learn how we work &nbsp;↓</a>
-    </div>
+  <div class="hero-lower">
+    <p class="hero-statement">You spent decades building something real. Your employees know their jobs. Your customers trust your name. <strong>That doesn't have to end when you're ready to step back.</strong></p>
   </div>
 
 </section>
 
-<!-- WHO WE ARE -->
+<!-- VISUAL -->
+<section id="visual" aria-hidden="true">
+  <img src="millstone_1.jpg" alt="A carved millstone resting in a green field" class="visual-photo">
+  <div class="visual-overlay"></div>
+</section>
+
+<!-- WHO I AM -->
 <section id="about">
   <div class="about-inner">
     <div class="about-left">
-      <p class="section-label reveal">Who We Are</p>
+      <p class="section-label reveal">Who I Am</p>
       <h2 class="section-title reveal reveal-delay-1">Not a fund.<br>Not a broker.<br><em>An owner.</em></h2>
       <blockquote class="about-pullquote reveal reveal-delay-2">
-        "Our goal is continuity — not disruption."
+        "My goal is continuity — not disruption."
       </blockquote>
     </div>
     <div class="about-right">
-      <p class="reveal">Millstone Holdings is a privately held investment company with a single, deliberate purpose: to acquire and operate one small business for the long term. We are not a private equity fund looking to flip an asset. We are not a broker intermediating a transaction. We are a buyer who intends to show up every day.</p>
-      <p class="reveal reveal-delay-1">Our founder brings a background that spans law, entrepreneurship, and operations — someone who can hold their own in a conversation with a shop foreman or a bank officer, and understands the motivations of both. The law degree sharpened the research instincts. The entrepreneurial spirit did the rest.</p>
-      <p class="reveal reveal-delay-2">We are also, frankly, personal about this. We understand what it means to pour yourself into a business because we're married to someone who has done exactly that. We know the weight of the decision you're making. We take that seriously.</p>
+      <p class="reveal">Millstone Holdings is a privately held investment company with a single, deliberate purpose: to acquire and operate one small business for the long term. I am not a private equity fund looking to flip an asset. I am not a broker intermediating a transaction. I am a buyer who intends to show up every day.</p>
+      <p class="reveal reveal-delay-1">I bring a background that spans law, entrepreneurship, and operations — someone who can hold their own in a conversation with a shop foreman or a bank officer, and understands the motivations of both. The law degree sharpened the research instincts. The entrepreneurial spirit did the rest.</p>
+      <p class="reveal reveal-delay-2">I am also, frankly, personal about this. I understand what it means to pour yourself into a business — I'm married to someone who has done exactly that. I know the weight of the decision you're making. I take that seriously.</p>
       <div class="values-row">
         <div class="value-cell reveal"><div class="value-name">Communication</div><div class="value-desc">Direct, honest, and responsive — always.</div></div>
-        <div class="value-cell reveal reveal-delay-1"><div class="value-name">Integrity</div><div class="value-desc">We say what we mean and mean what we say.</div></div>
-        <div class="value-cell reveal reveal-delay-2"><div class="value-name">Empathy</div><div class="value-desc">We understand this is personal for you.</div></div>
+        <div class="value-cell reveal reveal-delay-1"><div class="value-name">Integrity</div><div class="value-desc">I say what I mean and mean what I say.</div></div>
+        <div class="value-cell reveal reveal-delay-2"><div class="value-name">Empathy</div><div class="value-desc">I understand this is personal for you.</div></div>
         <div class="value-cell reveal"><div class="value-name">Adaptability</div><div class="value-desc">At home with any stakeholder, any situation.</div></div>
         <div class="value-cell reveal reveal-delay-1"><div class="value-name">Hard Work</div><div class="value-desc">Hands-on and present for what matters.</div></div>
         <div class="value-cell reveal reveal-delay-2"><div class="value-name">Continuity</div><div class="value-desc">Your team, customers, and name — preserved.</div></div>
@@ -569,7 +634,7 @@
 <!-- WHAT WE LOOK FOR -->
 <section id="criteria">
   <div class="criteria-inner">
-    <p class="section-label">What We Look For</p>
+    <p class="section-label">What I Look For</p>
     <h2 class="section-title reveal">The right business<br><em>for the right reason.</em></h2>
     <div class="criteria-grid">
       <div class="criteria-item reveal">
@@ -590,7 +655,7 @@
       <div class="criteria-item reveal reveal-delay-3">
         <div class="criteria-num">04</div>
         <div class="criteria-title">Primarily the Northeast</div>
-        <div class="criteria-desc">We focus on New England and the mid-Atlantic, where we have roots, relationships, and the ability to be present and engaged.</div>
+        <div class="criteria-desc">I focus on New England and the mid-Atlantic, where I have roots, relationships, and the ability to be present and engaged.</div>
       </div>
     </div>
   </div>
@@ -601,11 +666,11 @@
   <div class="approach-inner">
     <div class="approach-header">
       <div>
-        <p class="section-label reveal">Our Approach</p>
+        <p class="section-label reveal">My Approach</p>
         <h2 class="section-title reveal reveal-delay-1">Patience.<br><em>Transparency.</em><br>Respect.</h2>
       </div>
       <div class="approach-intro reveal reveal-delay-2">
-        We approach acquisitions the way we'd want to be approached: with clarity about who we are, what we can offer, and what comes next. No games, no surprises. We're in this for the long term, which means the relationship matters as much as the transaction.
+        I approach acquisitions the way I'd want to be approached: with clarity about who I am, what I can offer, and what comes next. No games, no surprises. I'm in this for the long term, which means the relationship matters as much as the transaction.
       </div>
     </div>
     <div>
@@ -613,35 +678,35 @@
         <div class="step-num">01 ——</div>
         <div class="step-content">
           <div class="step-title">Get to Know Each Other</div>
-          <div class="step-desc">An honest conversation about your business, your goals, and your timeline. No pressure, no NDAs before we've said hello. We want to understand what you've built and what matters to you about what comes next.</div>
+          <div class="step-desc">An honest conversation about your business, your goals, and your timeline. No pressure, no NDAs before I've said hello. I want to understand what you've built and what matters to you about what comes next.</div>
         </div>
       </div>
       <div class="step reveal reveal-delay-1">
         <div class="step-num">02 ——</div>
         <div class="step-content">
           <div class="step-title">Due Diligence with Respect</div>
-          <div class="step-desc">Thorough but efficient. We do our homework — financials, operations, team, customers — without wasting your time or disrupting your business. We know how to move with purpose.</div>
+          <div class="step-desc">Thorough but efficient. I do my homework — financials, operations, team, customers — without wasting your time or disrupting your business. I know how to move with purpose.</div>
         </div>
       </div>
       <div class="step reveal reveal-delay-2">
         <div class="step-num">03 ——</div>
         <div class="step-content">
           <div class="step-title">A Fair, Transparent Offer</div>
-          <div class="step-desc">We explain our thinking, not just the number. We want you to understand how we arrived at a valuation and why we believe it's fair. No lowball offers, no last-minute pivots at closing.</div>
+          <div class="step-desc">I explain my thinking, not just the number. I want you to understand how I arrived at a valuation and why I believe it's fair. No lowball offers, no last-minute pivots at closing.</div>
         </div>
       </div>
       <div class="step reveal reveal-delay-3">
         <div class="step-num">04 ——</div>
         <div class="step-content">
           <div class="step-title">A Transition That Works for You</div>
-          <div class="step-desc">Whether you want to stay involved for a year or hand over the keys on day one, we work around what makes sense for your business and your people. Your institutional knowledge is an asset — we don't want to lose it.</div>
+          <div class="step-desc">Whether you want to stay involved for a year or hand over the keys on day one, I work around what makes sense for your business and your people. Your institutional knowledge is an asset — I don't want to lose it.</div>
         </div>
       </div>
       <div class="step reveal reveal-delay-4">
         <div class="step-num">05 ——</div>
         <div class="step-content">
           <div class="step-title">Long-Term Stewardship</div>
-          <div class="step-desc">We're not building a portfolio. This is the business. We intend to own and operate it for years, invest in its people, and grow it sustainably. Your legacy doesn't get absorbed into a roll-up — it carries forward.</div>
+          <div class="step-desc">I'm not building a portfolio. This is the business. I intend to own and operate it for years, invest in its people, and grow it sustainably. Your legacy doesn't get absorbed into a roll-up — it carries forward.</div>
         </div>
       </div>
     </div>
@@ -652,7 +717,7 @@
 <section id="difference">
   <div class="difference-inner">
     <p class="section-label reveal">Why Millstone</p>
-    <h2 class="section-title reveal reveal-delay-1">We're not<br><em>typical buyers.</em></h2>
+    <h2 class="section-title reveal reveal-delay-1">Not a<br><em>typical buyer.</em></h2>
     <table class="compare-table reveal reveal-delay-2">
       <thead>
         <tr>
@@ -664,12 +729,12 @@
       <tbody>
         <tr>
           <td>Holding period</td>
-          <td>Long-term. We're not planning an exit.</td>
+          <td>Long-term. I'm not planning an exit.</td>
           <td>3–7 years, then a sale or roll-up.</td>
         </tr>
         <tr>
           <td>Businesses acquired</td>
-          <td>One. This one. All of our attention.</td>
+          <td>One. This one. All of my attention.</td>
           <td>Portfolio of many. Divided attention.</td>
         </tr>
         <tr>
@@ -679,7 +744,7 @@
         </tr>
         <tr>
           <td>Culture</td>
-          <td>Preserved intentionally. We came here for it.</td>
+          <td>Preserved intentionally. I came here for it.</td>
           <td>Often replaced with corporate process.</td>
         </tr>
         <tr>
@@ -689,11 +754,38 @@
         </tr>
         <tr>
           <td>Seller relationship</td>
-          <td>A partnership. We want your counsel.</td>
+          <td>A partnership. I want your counsel.</td>
           <td>Transactional. Ends at close.</td>
         </tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<!-- DEAL TEAM -->
+<section id="team">
+  <div class="team-inner">
+    <p class="section-label reveal">The Deal Team</p>
+    <h2 class="section-title reveal reveal-delay-1">Backed by an experienced<br><em>external team.</em></h2>
+    <p class="team-intro reveal reveal-delay-2">I am supported by an experienced external deal team as I evaluate and pursue the acquisition of one established small business.</p>
+    <div class="team-grid">
+      <div class="team-member reveal">
+        <div class="team-role">SBA Lending Advisor</div>
+        <div class="team-name">Bruce Marks</div>
+        <div class="team-firm">First Bank of the Lake</div>
+      </div>
+      <div class="team-member reveal reveal-delay-1">
+        <div class="team-role">Acquisition Advisors &amp;<br>Quality of Earnings</div>
+        <div class="team-name">Mike Jerman &amp; Adam Webster</div>
+        <div class="team-firm">Hollywell Partners</div>
+      </div>
+      <div class="team-member reveal reveal-delay-2">
+        <div class="team-role">Legal &amp; Deal Structuring</div>
+        <div class="team-name">Eric Pacifici</div>
+        <div class="team-firm">SMB Law Group</div>
+      </div>
+    </div>
+    <p class="team-body reveal reveal-delay-3">Together, this team helps me approach each opportunity with disciplined financing, careful financial review, practical deal structure, and a smooth, continuity-focused transition for sellers, employees, and customers.</p>
   </div>
 </section>
 
@@ -717,7 +809,7 @@
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">When</span>
-        <span class="contact-detail-value">Actively looking. No artificial urgency — your timeline, not ours.</span>
+        <span class="contact-detail-value">Actively looking. No artificial urgency — your timeline, not mine.</span>
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">How</span>
